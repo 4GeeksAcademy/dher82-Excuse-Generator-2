@@ -24,26 +24,13 @@ let generateExcuse = () => {
     "while I was praying"
   ];
   let randomWho = Math.floor(Math.random() * who.length);
-  console.log(randomWho);
-
-  console.log(who[randomWho]);
-  //acá termina el who//
 
   let randomaction = Math.floor(Math.random() * action.length);
-  console.log(randomaction);
 
-  console.log(action[randomaction]);
-
-  //acá termina action//
   let randomwhat = Math.floor(Math.random() * what.length);
-  console.log(randomwhat);
 
-  console.log(what[randomwhat]);
-  //acá termina what
   let randomwhen = Math.floor(Math.random() * when.length);
-  console.log(randomwhen);
 
-  console.log(when[randomwhen]);
   return (
     who[randomWho] +
     " " +
