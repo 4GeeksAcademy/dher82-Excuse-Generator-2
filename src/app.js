@@ -6,38 +6,32 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
 window.onload = function() {
-  //write your code here
-  document.querySelector(".excuse").innerHTML = generateExcuse();
-  const p = document.getElementById("parrafo");
-
-  p.innerText = "Guess What Happened!";
-};
-let generateExcuse = () => {
-  let who = ["The dog", "My grandma", "His turtle", "My bird"];
-  let action = ["ate", "peed", "crushed", "broke"];
-  let what = ["my homework", "the keys", "the car"];
-  let when = [
+  const who = ["The dog", "My grandma", "His turtle", "My bird"];
+  const action = ["ate", "peed", "crushed", "broke"];
+  const what = ["my homework", "the keys", "the car"];
+  const when = [
     "before the class",
     "right on time",
     "when I finished",
     "during my lunch",
     "while I was praying"
   ];
-  let randomWho = Math.floor(Math.random() * who.length);
 
-  let randomaction = Math.floor(Math.random() * action.length);
+  const excuse = generateExcuse(who, action, what, when);
 
-  let randomwhat = Math.floor(Math.random() * what.length);
+  document.querySelector(".excuse").innerHTML = excuse;
+  const p = document.getElementById("parrafo");
+  p.innerText = "Guess What Happened!";
+};
 
-  let randomwhen = Math.floor(Math.random() * when.length);
+const getRandomElement = array =>
+  array[Math.floor(Math.random() * array.length)];
 
-  return (
-    who[randomWho] +
-    " " +
-    action[randomaction] +
-    " " +
-    what[randomwhat] +
-    " " +
-    when[randomwhen]
-  );
+const generateExcuse = (who, action, what, when) => {
+  const randomWho = getRandomElement(who);
+  const randomAction = getRandomElement(action);
+  const randomWhat = getRandomElement(what);
+  const randomWhen = getRandomElement(when);
+
+  return `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}`;
 };
